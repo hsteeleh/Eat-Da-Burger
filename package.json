@@ -1,0 +1,29 @@
+{
+  "name": "viracocina",
+  "version": "1.0.0",
+  "description": "Come comida Peruana",
+  "main": "index.js",
+  "scripts": {
+    "test": "Peru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsteeleh/Viracocina.git"
+  },
+  "keywords": [
+    "Peru",
+    "Burger",
+    "Virachoche"
+  ],
+  "author": "Hanna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsteeleh/Viracocina/issues"
+  },
+  "homepage": "https://github.com/hsteeleh/Viracocina#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
+  }
+}
