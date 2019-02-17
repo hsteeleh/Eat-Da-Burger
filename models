@@ -1,0 +1,39 @@
+// Import the comida model to gain access to the database functions
+var comida = require('./viracocina.js');
+
+// Import the connection file directly, in order to terminate the connection at the end of the test run
+var connection = require('../config/connection.js');
+
+// Select all entries from the database
+comida.selectAll(function (data) {
+	console.log('comida.selectAll test...\n\n');
+
+	console.log('__________Comida__________\n');
+
+	for (var i = 0; i < data.length; i++) {
+		console.log('comida ID = ' + data[i].id);
+		console.log('comida Name = ' + data[i].comida_name);
+		console.log('Available = ' + data[i].devoured);
+
+		console.log('+++++++++++++++++++++++++++++++++++++++');
+	}
+});
+
+// Insert a single entry into the database
+comida.insertOne(['comida_name', 'devoured'], 
+	         	 ['Late Night Juicy comida', false], 
+	    		 function (data) {
+					console.log('\n\ncomida.insertOne test...\n\n');
+
+					console.log('Inserted new row with ID = ' + data.insertId + '\n\n');
+				 }
+);
+
+// Update a single entry in the database
+comida.updateOne({devoured: true}, 'id = 10', function (data) {
+	console.log('\n\ncomida.updateOne test...\n\n');
+
+	console.log('Result: ' + data.message);
+});
+
+connection.end();
