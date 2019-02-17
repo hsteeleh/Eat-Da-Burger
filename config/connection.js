@@ -8,7 +8,7 @@ var connection;
 
 if (process.env.COMDB_URL) {
 	
-	connection = mysql.createConnection(process.env.JAWSDB_URL);
+	connection = mysql.createConnection(process.env.COMDB_URL);
 } else {
 	// DB is local on localhost
 	connection = mysql.createConnection({
