@@ -1,0 +1,42 @@
+<h1>¡Bienvenidos a Viracocina!</h1>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col s6">
+        {{#each comidas}}
+          {{#unless this.devoured}}
+            <div>
+              <form action="/comidas/{{this.id}}?_method=PUT" method="POST">
+                <button type="submit" class='comidaAvailable'> {{this.comida_name}}</button>
+              </form>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
+
+      <div class="col s6">
+        {{#each comidas}}
+          {{#if this.devoured}}
+            <div class='comidaEaten'>
+              <div>
+                {{this.comida_name}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>
+
+<h2>Anadir su opcion</h2>
+
+<div class="row">
+  <div class="col s12">
+    <form action="/comidas" method="POST">
+      <input type="text" id="name" name="comida_name" placeholder="Uber Delicious comida">
+      <button type="submit" class="addcomidaButton">Anadir la comida</button>
+    </form>
+  </div>
+</div>
